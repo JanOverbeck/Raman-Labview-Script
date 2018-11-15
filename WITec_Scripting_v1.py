@@ -14,6 +14,7 @@ Created on Thu Jun 28 20:02:56 2018
 
 import os
 import numpy as np
+import matplotlib.pyplot as plt
 import WITec_Script_LowLVL as witec   # the folder containing this file needs to be added to the python Pathmanager (under Tools in Spyder)
 
 #%%
@@ -70,6 +71,8 @@ sizeY = size[1]
 stepX=250  #um
 stepY=250  #um
 
+alph = 00*(2*np.pi/360) # angle
+
 gridX = stepX*(np.arange(sizeX)+startX)         
 gridY = stepY*(np.arange(sizeY)+startY)
 #gridZ = [-1,0,1]
@@ -81,7 +84,13 @@ pointlist = []
 #for z in gridZ:
 for y in gridY:
     for x in gridX:
-        pointlist.append([x,y])            
+        u, v = (np.cos(alph)*x - np.sin(alph)*y, np.sin(alph)*x + np.cos(alph)*y)
+        pointlist.append([u,v])      
+
+       
+#plt.scatter(np.array(pointlist)[:,0],np.array(pointlist)[:,1])        # for debugging / checking angles
+
+
 
 #%%
 
