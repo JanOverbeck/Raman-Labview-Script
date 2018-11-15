@@ -135,6 +135,28 @@ def sspec_tint(tint=1.0):
     RamScript.append("UserParameters|SequencerSingleSpectrum|IntegrationTime"+sep+str(tint)+newline)
     
 
+   
+def motorStageX(posX=0.0):
+#    if -10000.0 < posX < 10000.0:
+        RamScript.append("UserParameters|SamplePositioning|AbsolutePositionX"+sep+str(posX)+newline)
+#    else:
+#        print("Invalid piezo X-range")
+            
+def motorStageY(posY=0.0):
+#    if -10000.0 < posY < 10000.0:
+        RamScript.append("UserParameters|SamplePositioning|AbsolutePositionY"+sep+str(posY)+newline)
+#    else:
+#        print("Invalid piezo Y-range")
+        
+       
+def motorStageXY(posX=0.0, posY=0.0):   
+    motorStageX(posX)
+    motorStageY(posY)
+#    motorStageZ(posZ)       
+    
+    
+    
+
 #%%
 
 #piezoXYZ(300,10,4.01)
